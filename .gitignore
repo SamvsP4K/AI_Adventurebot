@@ -129,6 +129,8 @@ env.bak/
 venv.bak/
 ai_env/
 ai_db-token.json
+config.py
+template.py
 
 # Spyder project settings
 .spyderproject

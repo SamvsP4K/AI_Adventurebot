@@ -131,6 +131,8 @@ ai_env/
 ai_db-token.json
 config.py
 template.py
+secure-connect-ai-db.zip/
+
 
 # Spyder project settings
 .spyderproject

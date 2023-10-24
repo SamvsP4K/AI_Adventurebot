@@ -1,12 +1,9 @@
-from re import template
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 import json
 from langchain.memory import CassandraChatMessageHistory, ConversationBufferMemory
 from langchain.llms import OpenAI
 from langchain import LLMChain, PromptTemplate
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores.cassandra import Cassandra
 from config import API_KEY, KEYSPACE
 from template import ruleset
 
@@ -60,16 +57,31 @@ llm_chain = LLMChain(
     memory=cass_buff_memory
 )
 
+#formats the output of AI response
+def format_response(response):
+
+    formatted = response.replace(".",".\n")
+    formatted = response.replace("?","?\n")
+    formatted = response.replace("!","!\n")
+
+    formatted = formatted[0].upper() + formatted[1:]
+
+    return formatted
+
+
 #this while loop runs the game until "The End" is detected in final response
 
-choice = "start"
+choice = "Greet the player"
 
 while True:
     response = llm_chain.predict(human_input=choice)
+    format_response(response)
     print(response.strip())
+    print("----------------------------------------------------------------------------------------")
 
     if "The End." in response:
         break
-
+    
     choice = input("Your Reply: ")
+    print("----------------------------------------------------------------------------------------")
 

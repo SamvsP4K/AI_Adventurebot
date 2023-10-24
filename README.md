@@ -101,6 +101,13 @@ The print statement will print out the models response which will be the start o
 The if statement following this will end the game if "The End." is detected in the models response. ***This was indicated in the template***.
 The new choice variable will input the users reply into the prediction which will allow for back and forth conversation. 
 
+#### Output
+
+Here is an example of the adventurebot output. The example has a "/" at the end of the sentence that was entered by accident. 
+The AI is great at determining what is a typo and can continue with the journey. 
+
+![adventure_bot_output](https://github.com/SamvsP4K/AI_Adventurebot/assets/110923091/8cc22423-d9dd-473b-b803-19dddde2f525)
+
 
 ### Future updates and notes:
 
